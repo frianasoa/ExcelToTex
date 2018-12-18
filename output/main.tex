@@ -1,0 +1,111 @@
+%Paper A4, font 11
+\documentclass[11pt, a4paper, oneside]{book} % oneside to remove blank pages
+
+% Packages 
+\usepackage[french,english]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[svgnames,table]{xcolor}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{fancyhdr} % Abstract
+\usepackage{fontspec}
+\usepackage{blindtext}
+\usepackage{setspace}
+\usepackage{pgfplots}
+\usepackage{tikzscale}
+\usepackage{filecontents}
+\usepackage{booktabs}
+\usepackage[tableposition=above]{caption}
+\usepackage{adjustbox}
+\usepackage{csquotes}
+\usepackage{tabularx,ragged2e,booktabs}
+\usepackage{siunitx}
+
+\sisetup{group-separator = {,}, group-minimum-digits={3}}
+\newcolumntype{L}{>{\RaggedLeft\arraybackslash}X}
+
+
+\usepackage[
+    backend=biber,
+    style=authoryear-icomp,
+    sortlocale=en_US,
+    natbib=true,
+    url=false, 
+    doi=true,
+    eprint=false
+]{biblatex}
+
+%Fonts
+\setmainfont{Times New Roman}
+\setstretch{1.50}
+
+%Chapter headings
+\titleformat{\chapter}[hang] % hang makes removes \n after "chapter" 
+{\normalfont\fontsize{12}{15}\bfseries}{\chaptertitlename\ \thechapter.}{1em}{}
+
+%Remove vspace before chapter headings
+\titlespacing*{\chapter}{0pt}{0pt}{14pt}
+
+%Section headings 
+\titleformat{\section} 
+{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{} 
+
+\pagestyle{empty}
+\newenvironment{abstract}%
+{\cleardoublepage\null \vfill\begin{center}%
+\bfseries \abstractname \end{center}}%
+{\vfill\null}
+
+%Margins
+\usepackage[a4paper, left=30mm, right=30mm, top=35mm, bottom=30mm]{geometry}
+
+
+%Title page elements
+\def \documenttype {Master's thesis}
+\title{Exploring the trajectory of the children from school to work in the rural area of Madagascar}
+\def \subtitle{from the perspective of the teachers, the students and the parents}
+\date{\today}
+\author{Fanantenana Rianasoa Andriariniaina}
+\def \university{Osaka University}
+\def \graduateschool{Graduate School of Human Sciences}
+\def \major{Human Sciences\hspace{2mm}-\hspace{2mm}Global Kyosei Studies}
+\def \field{International Collaboration and Development Studies}
+\def \studentnumber{Student number: 21A17101}
+\def \supervisor{Supervisor: Professor Nobuhide Sawamura}
+
+% Redefine maketitle
+\makeatletter
+    \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+    \begin{center}
+        \vskip 3em%
+        
+        \documenttype\\
+        \vskip 5em%
+        
+        {\Large\textbf\@title:\\
+        \textbf\subtitle \par}
+        \vskip 6em%
+        
+        \@date\\
+        \vskip 4em%
+        
+        \@author\\
+        \vskip 2em% 
+        
+        \university\hspace{2mm}-\hspace{2mm}\graduateschool\\
+        \major\\
+        \field\\
+        \vskip 1.5em 
+        
+        \studentnumber\\
+        \vskip 2em
+        
+        \supervisor\\
+    \end{center}\egroup
+    }
+\makeatother
+
+\begin{document}
+\input{tableindex}
+\end{document}
